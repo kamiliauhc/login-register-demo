@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* 取消默认margin */
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  /* 居中 */
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+/* 注册卡片 */
+.card {
+  width: 360px;
+  padding: 32px;
+  background: #fff;
+  /* 圆角&阴影 */
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+/* 改输入框 */
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  /* 选框颜色 */
+  border-color: #7fae3b;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  background-color: #7fae3b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* js禁用样式 */
+button:disabled {
+  background-color: #c7eb94;
+  cursor: not-allowed;
+}
+/* 提示信息 */
+.message {
+  min-height: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+.message.error {
+  color: #ff4d4f;
+}
+.message.success {
+  color: #52c41a;
+}
+
+/* link */
+.link {
+  text-align: center;
+  font-size: 14px;
+}
+.link a {
+  color: #7fae3b;
+  text-decoration: none;
+}
