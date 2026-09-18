@@ -9,9 +9,12 @@
   <body>
     <!-- 登录卡片 -->
     <div class="card">
-      <form action="" id="LoginForm" novalidate>
+      <div class="card_header">
         <h1>登录</h1>
-
+        <p>请登录你的账号</p>
+      </div>
+      <!-- <h1>登录</h1> -->
+      <form action="" id="LoginForm" novalidate>
         <!-- 用户名部分 -->
         <div class="form-group">
           <label for="username">用户名</label>
@@ -20,7 +23,6 @@
             id="username"
             name="username"
             placeholder="请输入用户名"
-            autocomplete="username"
           />
         </div>
 
@@ -32,7 +34,6 @@
             id="password"
             name="password"
             placeholder="请输入密码"
-            autocomplete="new-password"
           />
         </div>
 

@@ -12,15 +12,49 @@ body {
   align-items: center;
   background-color: #f0f2f5;
   font-family: Arial, "Microsoft YaHei", sans-serif;
+  /* 背景 */
+  background-image: url("/frontend/assets/image/background_picture.png");
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-/* 注册卡片 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/frontend/assets/image/background_picture.png) center/cover
+    no-repeat;
+  filter: blur(8px);
+  z-index: -1;
+}
+/* 卡片 */
+.card_header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.card_header h1 {
+  margin: 0 0 8px;
+  /* font-size: 30px; */
+  color: #222;
+  font-weight: 600;
+}
+.card_header p {
+  margin: 0;
+  color: #888;
+  font-size: 14px;
+}
 .card {
-  width: 360px;
-  padding: 32px;
-  background: #fff;
+  width: 380px;
+  padding: 40px 36px;
+  background: rgba(255, 255, 255, 0.95);
   /* 圆角&阴影 */
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
 }
 
 h1 {
@@ -51,23 +85,32 @@ input:focus {
   /* 选框颜色 */
   border-color: #7fae3b;
 }
-
+/* 按钮 */
 button {
   width: 100%;
   padding: 10px;
   margin-top: 8px;
-  background-color: #7fae3b;
+  background: linear-gradient(135deg, #34d24e, #7bcf3b);
   color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
 }
-/* js禁用样式 */
-button:disabled {
-  background-color: #c7eb94;
-  cursor: not-allowed;
+button:hover {
+  transform: translateY(-0.5px);
+  box-shadow: 0 8px 16px rgba(102, 234, 166, 0.4);
 }
+button:active {
+  transform: translateY(0);
+}
+button:disabled {
+  background: #b3dc79;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* 提示信息 */
 .message {
   min-height: 20px;
@@ -89,4 +132,26 @@ button:disabled {
 .link a {
   color: #7fae3b;
   text-decoration: none;
+  font-weight: 600;
+}
+.link a:hover {
+  text-decoration: underline;
+}
+/* 动画 */
+.card {
+  animation: come 0.75s ease-out;
+}
+@keyframes come {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* 验证码按钮 */
+#sendCode{
+   
 }
