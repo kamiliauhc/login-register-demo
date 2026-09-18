@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 提示语函数
   function showMessage(text, type = "error") {
     messageElement.textContent = text;
-    // 用反引号（正确用法）
     messageElement.className = `message ${type}`;
   }
 
@@ -52,5 +51,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 提交数据至后端（还没写）
     // 建议：在这里用 try...catch 包裹请求，并在 finally 里恢复按钮状态
+    try{
+      //提交数据
+      const res =await fetch('/api/register',{
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        credentials: "same-origin",
+        body: JSON.stringify({ username,password})
+      });
+      //解析字符串
+      const data = await res.json();
+      if (res.ok && data.code == 0) {
+        showMessage('注册成功，即将跳转登录页...',success);
+        setTimeout (()=>{
+          window.location.href = 'index.html';
+        },1000);
+      } else {
+        showMessage(data.msg || '注册失败，请重试');
+      }
+    } catch (err) {
+      showMessage('网络错误，请检查后端服务是否启动');
+    }finally {
+      //恢复
+      submitBtn.disabled = false;
+      submitBtn.textContent = '注册';
+    }
   });
 });
